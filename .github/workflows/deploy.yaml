@@ -29,6 +29,7 @@ jobs:
         ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa ubuntu@${{ secrets.EC2_PUBLIC_IP }} << EOF
           mkdir -p ~/my-app
           cd ~/my-app
+          ssh-keyscan -t rsa github.com >> ~/.ssh/known_hosts
           git init
           git remote add origin git@github.com:reddypolukarthikeya/collegeAppointment.git
           git pull origin main
